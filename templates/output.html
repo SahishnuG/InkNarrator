@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Output</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles1.css')  }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Your Story</h1>
+        <form action="{{ url_for('output') }}" method="POST">
+            <!-- Textbox for Output -->
+            <div class="form-group">
+                <label for="output">Story Output:</label>
+                <textarea id="output" name="output" rows="10" placeholder="Your story will appear here...">{{output}}</textarea>
+            </div>
+
+            <!-- Radio Buttons for Printing Option -->
+            <div class="form-group">
+                <label>Do you want to print the story?</label>
+                <div>
+                    <input type="radio" id="print" name="print" value="yes">
+                    <label for="yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="print" name="print" value="no">
+                    <label for="no">No</label>
+                </div>
+                <p>{{printed}}</p>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
